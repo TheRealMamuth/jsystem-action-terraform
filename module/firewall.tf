@@ -1,7 +1,7 @@
 resource "digitalocean_firewall" "actions-firewall" {
-  name = "mstepien-tactions-firewall"
+  name = "mstepien-firewall"
 
-  droplet_ids = [for vm in digitalocean_droplet.tactions-vm : vm.id]
+  #droplet_ids = [for vm in digitalocean_droplet.tactions-vm : vm.id]
 
   dynamic "inbound_rule" {
     for_each = local.firewall

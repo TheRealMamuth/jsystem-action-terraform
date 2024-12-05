@@ -3,7 +3,7 @@ locals {
     {
       protocol         = "tcp"
       port_range       = "22"
-      source_addresses = ["192.168.1.110"]
+      source_addresses = ["0.0.0.0/0"]
     },
     {
       protocol         = "tcp"
