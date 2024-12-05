@@ -10,7 +10,7 @@ module "ssh_tls_module" {
 module "network" {
   source          = "./modules/network"
   vpc_description = "testnetwork"
-  vpc_ip_range = "10.11.55.0/24"
+  vpc_ip_range    = "10.11.55.0/24"
 }
 
 module "vm" {
