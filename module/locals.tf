@@ -1,21 +1,3 @@
-
-locals {
-  vm = [
-    {
-      name   = "${var.name}-ubuntu-20"
-      image  = "ubuntu-20-04-x64"
-      region = var.region
-      size   = "s-1vcpu-1gb"
-    },
-    {
-      name   = "${var.name}-ubuntu-22"
-      image  = "ubuntu-22-04-x64"
-      region = var.region
-      size   = "s-1vcpu-1gb"
-    }
-  ]
-}
-
 locals {
   firewall = [
     {

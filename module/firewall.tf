@@ -1,5 +1,5 @@
 resource "digitalocean_firewall" "actions-firewall" {
-  name = "${var.name}-tactions-firewall"
+  name = "mstepien-tactions-firewall"
 
   droplet_ids = [for vm in digitalocean_droplet.tactions-vm : vm.id]
 
