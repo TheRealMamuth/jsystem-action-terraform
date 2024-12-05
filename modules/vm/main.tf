@@ -1,4 +1,4 @@
-resource "digitalocean_droplet" "cw2_vm_tz" {
+resource "digitalocean_droplet" "vm" {
   for_each = var.vms
 
   name       = "${var.prefix}-vm-${each.value.name}"
