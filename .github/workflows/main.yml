@@ -22,4 +22,55 @@ jobs:
           terraform validate
           terraform fmt -check -recursive
 
+  terraform_plan:
+    name: "Terraform Plan"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - name: "Setup Terraform"
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.10.0
+          cli_config_credentials_token: ${{ secrets.TF_API_KEY }}
+
+      - name: "Terraform Init"
+        run: |
+          terraform init -input=false
+
+      - name: "Get credentials"
+        run: |
+          cat << EOF > .auto.tfvars
+          ${{ secrets.TF_VARIABLES }}
+          EOF
+      
+      # You can use example this: -var-file="vars"
+      - name: "Terraform Plan"
+        run: |
+          terraform plan -input=false -out=tfplan -var="digitalocean_api_token=${{ secrets.DO_API_TOKEN}}" 
+          
+
+
+  terraform_apply:
+    name: "Terraform Apply"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - name: "Setup Terraform"
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.10.0
+          cli_config_credentials_token: ${{ secrets.TF_API_KEY }}
+
+      - name: "Terraform Init"
+        run: |
+          terraform init -input=false
+ 
+      # We use the tfplan file created in the terraform_plan job
+      - name: "Terraform Apply"       
+        run: |
+          terraform apply -input=false tfplan
       

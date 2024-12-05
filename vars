@@ -1,0 +1,8 @@
+project_name           = "tf-piotr"
+droplet_name           = "tf-piotr"
+network_name           = "tf-piotr"
+firewall_name          = "tf-piotr"
+ssh_key_name           = "tf-piotr"
+region                 = "fra1"
+environment            = "Development"
+ip_range               = "10.231.10.0/24"
