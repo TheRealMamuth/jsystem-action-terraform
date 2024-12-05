@@ -1,7 +1,3 @@
-variable "do_token" {
-  description = "digital ocean token"
-}
-
 variable "project_name" {
   description = "Name of the project"
   default     = "defaultprojectname"
@@ -28,5 +24,6 @@ variable "environment" {
 
 variable "project_resources" {
   description = "A set of resources associated with the project."
+  default     = []
   type        = set(string)
 }
