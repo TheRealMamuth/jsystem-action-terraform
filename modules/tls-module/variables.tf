@@ -1,7 +1,7 @@
 variable "ssh_key_name" {
   description = "DigitalOcean SSH key name"
   type        = string
-  default     = concat("digitalocean-ssh-key-", uuid())
+  default     = "digitalocean-ssh-key"
 }
 
 variable "tls_rsa_key_length" {
