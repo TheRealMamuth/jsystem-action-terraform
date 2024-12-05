@@ -2,6 +2,9 @@ name: "Terraform Workflow"
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches:
+      - main
 
 jobs:
   terraform_validate:
@@ -49,7 +52,7 @@ jobs:
       # You can use example this: -var-file="vars"
       - name: "Terraform Plan"
         run: |
-          terraform plan -destroy -input=false -out=tfplan -var="digitalocean_api_token=${{ secrets.DO_API_TOKEN}}" 
+          terraform plan -input=false -out=tfplan -var="digitalocean_api_token=${{ secrets.DO_API_TOKEN}}" 
 
       # Copy artifact to artifacts githubs
       - name: "Upload tfplan"
@@ -60,6 +63,7 @@ jobs:
 
 
   terraform_apply:
+    if: github.ref == 'refs/heads/main'
     needs: [ terraform_plan ]
     name: "Terraform Apply"
     runs-on: ubuntu-latest
