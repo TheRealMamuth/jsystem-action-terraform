@@ -49,7 +49,13 @@ jobs:
       - name: "Terraform Plan"
         run: |
           terraform plan -input=false -out=tfplan -var="digitalocean_api_token=${{ secrets.DO_API_TOKEN}}" 
-          
+
+      # Copy artifact to artifacts githubs
+      - name: "Upload tfplan"
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfplan
+          path: tfplan
 
 
   terraform_apply:
@@ -65,6 +71,12 @@ jobs:
           terraform_version: 1.10.0
           cli_config_credentials_token: ${{ secrets.TF_API_KEY }}
 
+      - name: "Download tfplan"
+        uses: actions/download-artifact@v4
+        with:
+          name: tfplan
+          path: ./downloaded-tfplan
+
       - name: "Terraform Init"
         run: |
           terraform init -input=false
@@ -72,5 +84,5 @@ jobs:
       # We use the tfplan file created in the terraform_plan job
       - name: "Terraform Apply"       
         run: |
-          terraform apply -input=false tfplan
+          terraform apply ./downloaded-tfplan/tfplan
       
