@@ -23,6 +23,7 @@ jobs:
           terraform fmt -check -recursive
 
   terraform_plan:
+    needs: [ terraform_validate ]
     name: "Terraform Plan"
     runs-on: ubuntu-latest
     steps:
@@ -59,6 +60,7 @@ jobs:
 
 
   terraform_apply:
+    needs: [ terraform_plan ]
     name: "Terraform Apply"
     runs-on: ubuntu-latest
     steps:
