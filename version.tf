@@ -5,12 +5,4 @@ terraform {
       source = "digitalocean/digitalocean"
     }
   }
-  cloud {
-
-    organization = "jsystem_szkolenie_terraform"
-
-    workspaces {
-      name = "jsystem-action-terraform"
-    }
-  }
 }
