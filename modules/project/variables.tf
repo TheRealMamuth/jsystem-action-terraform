@@ -19,7 +19,11 @@ variable "project_purpose" {
 
 variable "environment" {
   description = "The environment in which the project is deployed."
-  default     = "dev"
+  default     = "Development"
+  validation {
+    condition     = contains(["Development", "Staging", "Production"], var.environment)
+    error_message = "The environment must be one of 'Development', 'Staging', or 'Production'."
+  }
 }
 
 variable "project_resources" {
