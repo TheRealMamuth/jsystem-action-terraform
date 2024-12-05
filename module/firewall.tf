@@ -1,4 +1,4 @@
-resource "digitalocean_firewall" "actions-firewall" {
+resource "digitalocean_firewall" "ms-firewall" {
   name = "mstepien-firewall"
 
   #droplet_ids = [for vm in digitalocean_droplet.tactions-vm : vm.id]
