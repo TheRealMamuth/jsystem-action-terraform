@@ -1,3 +1,3 @@
 resource "random_id" "this" {
-  byte_length = 1
+  byte_length = 2
 }
