@@ -13,7 +13,7 @@ variable "vpc_region" {
 variable "vpc_description" {
   type        = string
   description = "Human readable vpc description"
-  default     = "VPC for region ${var.vpc_region}"
+  default     = "VPC for region"
 }
 
 variable "vpc_ip_range" {
