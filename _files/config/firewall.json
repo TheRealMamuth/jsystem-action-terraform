@@ -1,0 +1,32 @@
+{
+    "inbound_rules": [
+      {
+        "protocol": "tcp",
+        "ports": "22",
+        "sources_addresses": ["0.0.0.0/0"]
+      },
+      {
+        "protocol": "tcp",
+        "ports": "80",
+        "sources_addresses": ["0.0.0.0/0"] 
+      },
+      {
+        "protocol": "tcp",
+        "ports": "443",
+        "sources_addresses": ["0.0.0.0/0"] 
+      }
+    ],
+    "outbound_rules": [
+      {
+        "protocol": "tcp",
+        "ports": "1-65535",
+        "destinations_addresses": ["0.0.0.0/0"] 
+      },
+      {
+        "protocol": "udp",
+        "ports": "1-65535",
+        "destinations_addresses": ["0.0.0.0/0"] 
+      }
+    ]
+  }
+  

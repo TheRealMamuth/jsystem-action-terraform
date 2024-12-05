@@ -1,0 +1,28 @@
+{
+    "vm1": {
+      "name": "pio-kos",
+      "region": "fra1",
+      "image": "ubuntu-22-04-x64",
+      "size": "s-1vcpu-1gb",
+      "monitoring": true,
+      "backups": false,
+      "ipv6": false,
+      "resize_disk": false,
+      "tags" : ["vm1", "piotrkoska"],
+      "droplet_agent" : true,
+      "graceful_shutdown" : true
+    },
+    "vm2": {
+      "name": "pio-kos",
+      "region": "fra1",
+      "image": "ubuntu-20-04-x64",
+      "size": "s-1vcpu-1gb",
+      "monitoring": true,
+      "backups": false,
+      "ipv6": false,
+      "resize_disk": false,
+      "tags" : ["vm2", "piotrkoska"],
+      "droplet_agent" : true,
+      "graceful_shutdown" : true
+    }
+}
