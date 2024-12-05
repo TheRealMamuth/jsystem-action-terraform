@@ -4,6 +4,6 @@ resource "tls_private_key" "tls-rsa-4096-private-key" {
 }
 
 resource "digitalocean_ssh_key" "open-ssh-key" {
-  name       = "SSH key for virtual machines"
+  name       = var.ssh-key-name
   public_key = tls_private_key.tls-rsa-4096-private-key.public_key_openssh
 }
