@@ -19,12 +19,12 @@ variable "vms" {
     },
   }
 }
-variable ssh_key_id{
+variable "ssh_key_id" {
   description = "key ssh"
-  type = string
+  type        = string
 }
 
-variable vpc_uuid {
+variable "vpc_uuid" {
   description = "network uuid "
-  type = string
+  type        = string
 }
