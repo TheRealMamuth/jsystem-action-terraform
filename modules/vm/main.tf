@@ -6,5 +6,5 @@ resource "digitalocean_droplet" "vm" {
   region     = var.region
   size       = var.vm_size
   vpc_uuid   = var.vpc_uuid
-  ssh_keys   = [var.ssk_key_id]
+  ssh_keys   = [var.ssh_key_id]
 }

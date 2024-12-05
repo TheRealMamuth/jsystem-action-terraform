@@ -19,7 +19,7 @@ variable "vms" {
     },
   }
 }
-variable ssk_key_id{
+variable ssh_key_id{
   description = "key ssh"
   type = string
 }
